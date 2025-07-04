@@ -99,7 +99,7 @@ export const verifyOTP = async (req, res) => {
      console.log(user)
     if (!user) return res.status(404).json({ message: 'User not found' });
 
-    const isValid = await OTP.verifyOtp(user._id, otp); // Pass user._id, not email
+    const isValid = await otpService.verifyOtp(user._id, otp); // Pass user._id, not email
      console.log(isValid)
     if (!isValid) {
       return res.status(400).json({ message: 'Invalid or expired OTP' });
