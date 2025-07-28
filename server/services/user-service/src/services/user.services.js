@@ -10,3 +10,13 @@ export const getProfile = async (req, res) => {
     res.status(500).json({ message: 'Could not fetch user profile' });
   }
 };
+
+
+export const fecchById= async (req,res) =>{
+  try {
+    const user =await sendRPC('get-user',req.user.id);
+   res.status(200).json(user);
+  } catch (error) {
+    
+  }
+}
